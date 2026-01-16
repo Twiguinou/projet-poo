@@ -68,7 +68,7 @@ public:
         capacity = 0;
     }
 
-    [[nodiscard]] std::size_t getSize() const
+    std::size_t getSize() const
     {
         return size;
     }

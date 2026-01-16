@@ -2,21 +2,28 @@
 #define ADHERENT_H
 
 #include "Array.h"
-using namespace std;
+#include "Common.h"
+#include <string>
 
-class Adherent(){
-    private :
-    string nom;
-    string prenom;
-    string adresse;
+class Adherent()
+{
+private:
+    std::string nom;
+    std::string prenom;
+    std::string adresse;
     id numero;
-    Bibliotheque biblio;
-    Array<Livre> listeLivreEmprunt;
-    int nombreLivreAuto;
-    public:
-    Adherent(string nom, string prenom, string adresse, id numero, Bibliotheque biblio);
-    ~Adherent();
-    void emprunter(id);
+    Bibliotheque& biblio;
+    Array<Livre&> listeLivreEmprunt;
+    std::size_t nombreLivreAuto;
+
+public:
+    Adherent(std::string nom, std::string prenom, std::string adresse, id numero, Bibliotheque& biblio, std::size_t
+    nombreLivreAuto) : nom(nom), prenom(prenom), adresse(adresse), numero(numero), biblio(biblio),
+    nombreLivreAuto(nombreLivreAuto) :  {}
+
+    void emprunter(id idLivre)
+    {
+    }
 }
 
 

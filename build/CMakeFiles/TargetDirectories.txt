@@ -1,0 +1,3 @@
+/home/amammar/projet-poo/build/CMakeFiles/projet_poo.dir
+/home/amammar/projet-poo/build/CMakeFiles/edit_cache.dir
+/home/amammar/projet-poo/build/CMakeFiles/rebuild_cache.dir
