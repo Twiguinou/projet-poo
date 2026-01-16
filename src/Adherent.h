@@ -1,6 +1,7 @@
 #ifndef ADHERENT_H
 #define ADHERENT_H
 
+#include "Array.h"
 using namespace std;
 
 class Adherent(){
@@ -17,6 +18,7 @@ class Adherent(){
     ~Adherent();
     void emprunter(id);
 }
+
 
 
 
