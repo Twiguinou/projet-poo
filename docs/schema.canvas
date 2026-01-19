@@ -1,0 +1,31 @@
+{
+	"nodes":[
+		{"id":"de1761d8a4de6da2","type":"text","text":"Livre","x":-560,"y":-120,"width":100,"height":50},
+		{"id":"4b19f6f1cf3f13ce","type":"text","text":"Adhérent","x":0,"y":-120,"width":120,"height":50},
+		{"id":"36d3edc5169873cd","type":"text","text":"Emprunte","x":-300,"y":45,"width":140,"height":50},
+		{"id":"475c06d0be701c97","type":"text","text":"Bibliothèque","x":-310,"y":-300,"width":160,"height":50},
+		{"id":"012af3fe95bcf254","type":"text","text":"Roman","x":-920,"y":-60,"width":100,"height":50},
+		{"id":"440ed1811801785c","type":"text","text":"Bande dessinée","x":-920,"y":-275,"width":180,"height":50},
+		{"id":"d652c190c48a78be","type":"text","text":"Recueil de poésie","x":-920,"y":-170,"width":180,"height":50},
+		{"id":"21ad8cc0afd536ae","type":"text","text":"Pièce de théâtre","x":-950,"y":20,"width":180,"height":50},
+		{"id":"f1dac3948b448d7d","type":"text","text":"Album","x":-840,"y":120,"width":100,"height":50},
+		{"id":"9e633a022a7b944a","x":160,"y":-295,"width":340,"height":450,"type":"text","text":"Propriétés:\n- Afficher les livres d'une bibliothèque par catégorie. (FACILE)\n- Un adhérent emprunte un livre. (DIFFICILE)\n- Un adhérent rend un livre. (DIFFICILE)\n- Une bibliothèque achète un livre. (FACILE)\n- Une bibliothèque prête un livre à une autre. (DIFFICILE)\n- Une bibliothèque supprime un livre. (DIFFICILE)\n- Une bibliothèque rend les livres qui lui sont prêtés et non empruntés."},
+		{"id":"c894ec41635f2c12","x":-275,"y":-420,"width":90,"height":50,"type":"text","text":"Prête"},
+		{"id":"bb4d2eb1b83ba408","x":-327,"y":-145,"width":105,"height":50,"type":"text","text":"Détient"}
+	],
+	"edges":[
+		{"id":"b8cbafa077d8b5e4","fromNode":"f1dac3948b448d7d","fromSide":"right","toNode":"de1761d8a4de6da2","toSide":"left"},
+		{"id":"8d534b71d1cc0d13","fromNode":"21ad8cc0afd536ae","fromSide":"right","toNode":"de1761d8a4de6da2","toSide":"left"},
+		{"id":"1898ea750dd0db0f","fromNode":"012af3fe95bcf254","fromSide":"right","toNode":"de1761d8a4de6da2","toSide":"left"},
+		{"id":"be565e83bc267b18","fromNode":"d652c190c48a78be","fromSide":"right","toNode":"de1761d8a4de6da2","toSide":"left"},
+		{"id":"d3950bdd879dd7fd","fromNode":"440ed1811801785c","fromSide":"right","toNode":"de1761d8a4de6da2","toSide":"left"},
+		{"id":"e399aaee9d9e02c4","fromNode":"4b19f6f1cf3f13ce","fromSide":"bottom","toNode":"36d3edc5169873cd","toSide":"right","label":"numero"},
+		{"id":"be8b90e423a51aa2","fromNode":"de1761d8a4de6da2","fromSide":"bottom","toNode":"36d3edc5169873cd","toSide":"left","label":"code"},
+		{"id":"ea76faba8a031645","fromNode":"475c06d0be701c97","fromSide":"right","toNode":"4b19f6f1cf3f13ce","toSide":"top","label":"code"},
+		{"id":"7f12134b1d78a3ac","fromNode":"475c06d0be701c97","fromSide":"bottom","toNode":"bb4d2eb1b83ba408","toSide":"top","label":"code"},
+		{"id":"4c4b8b83b42e9b29","fromNode":"de1761d8a4de6da2","fromSide":"right","toNode":"bb4d2eb1b83ba408","toSide":"left","label":"code"},
+		{"id":"c42958ad2fcc486d","fromNode":"475c06d0be701c97","fromSide":"left","toNode":"c894ec41635f2c12","toSide":"left","label":"code"},
+		{"id":"00ed6f05df3b63fc","fromNode":"475c06d0be701c97","fromSide":"right","toNode":"c894ec41635f2c12","toSide":"right","label":"code"},
+		{"id":"83512b10af761295","fromNode":"de1761d8a4de6da2","fromSide":"top","toNode":"c894ec41635f2c12","toSide":"left","label":"code"}
+	]
+}

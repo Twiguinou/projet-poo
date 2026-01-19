@@ -1,26 +1,36 @@
-#ifndef BIBLIOTHEQUE_H
-#define BIBLIOTHEQUE_H
-using namespace std;
+#ifndef PROJET_POO_BIBLIOTHEQUE_H
+#define PROJET_POO_BIBLIOTHEQUE_H
 
-class Bibliotheque{
-    private:
-        string nom;
-        string adresse;
-        id code;
-        Array<Livre> listeLivre;
-        Array<Adherent> listeAdherent;
+#include <cstdint>
+#include <string>
 
-    public:
-        Bibliotheque(string nom="", string adresse="", id code=0);
-        ~Bibliotheque();
-        void emprunterLivre(int);
-        void afficherLivres(string);
-        void acheterLivre();
-        void supprimerLivre();
-        void rendreLivres();
-        void setListeLivres(Array<Livre> listeLivre);
-        void setListeAdherent(Array<Adherent> listeAdherent);
-}
+struct Bibliotheque
+{
+    const std::uint64_t code;
+    const std::string nom;
+    const std::string adresse;
 
+    Bibliotheque(std::uint64_t code, std::string nom, std::string adresse)
+    : code(code), nom(std::move(nom)), adresse(std::move(adresse)) {}
+};
+
+struct Emprunte
+{
+    const std::uint64_t livre;
+    const std::uint64_t adherent;
+};
+
+struct Detient
+{
+    const std::uint64_t livre;
+    const std::uint64_t bibliotheque;
+};
+
+struct Prete
+{
+    const std::uint64_t livre;
+    const std::uint64_t source;
+    const std::uint64_t destination;
+};
 
 #endif

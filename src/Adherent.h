@@ -1,32 +1,20 @@
-#ifndef ADHERENT_H
-#define ADHERENT_H
+#ifndef PROJET_POO_ADHERENT_H
+#define PROJET_POO_ADHERENT_H
 
-#include "Array.h"
-#include "Common.h"
+#include <cstdint>
 #include <string>
 
-class Adherent()
+struct Adherent
 {
-private:
-    std::string nom;
-    std::string prenom;
-    std::string adresse;
-    id numero;
-    Bibliotheque& biblio;
-    Array<Livre&> listeLivreEmprunt;
-    std::size_t nombreLivreAuto;
+    const std::uint64_t numero;
+    const std::string nom;
+    const std::string prenom;
+    const std::string adresse;
+    const std::uint64_t bibliotheque;
+    const std::uint8_t maxEmprunt;
 
-public:
-    Adherent(std::string nom, std::string prenom, std::string adresse, id numero, Bibliotheque& biblio, std::size_t
-    nombreLivreAuto) : nom(nom), prenom(prenom), adresse(adresse), numero(numero), biblio(biblio),
-    nombreLivreAuto(nombreLivreAuto) :  {}
-
-    void emprunter(id idLivre)
-    {
-    }
-}
-
-
-
+    Adherent(std::uint64_t numero, std::string nom, std::string prenom, std::string adresse, std::uint64_t bibliotheque, std::uint8_t maxEmprunt)
+    : numero(numero), nom(std::move(nom)), prenom(std::move(prenom)), adresse(std::move(adresse)), bibliotheque(bibliotheque), maxEmprunt(maxEmprunt) {}
+};
 
 #endif
