@@ -1,1 +1,0 @@
-/usr/bin/c++.exe -Wl,--enable-auto-import CMakeFiles/projet_poo.dir/src/main.cpp.o -o projet_poo.exe -Wl,--out-implib,libprojet_poo.dll.a -Wl,--major-image-version,0,--minor-image-version,0
