@@ -1,0 +1,9 @@
+add_library(projet-poo-libs
+    Adherent.h
+    Bibliotheque.h
+    Database.cpp
+    Database.h
+    Livre.h
+    Table.cpp
+    Table.h
+)

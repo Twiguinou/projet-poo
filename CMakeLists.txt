@@ -1,15 +1,14 @@
-cmake_minimum_required(VERSION 4.0)
-project(projet_poo)
+cmake_minimum_required(VERSION 3.31)
+
+project(projet_poo VERSION 1.0.0)
+
+option(BUILD_UI "Build the Qt graphical interface" ON)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(projet_poo
-    src/main.cpp
-    src/Table.h
-    src/Table.cpp
-    src/Database.h
-    src/Database.cpp
-    src/Bibliotheque.h
-    src/Adherent.h
-    src/Livre.h
-)
+add_subdirectory(library)
+
+if (BUILD_UI)
+    add_subdirectory(ui)
+endif ()
