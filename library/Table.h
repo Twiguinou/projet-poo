@@ -20,6 +20,8 @@ struct DataType
     [[nodiscard]] virtual bool equal(const std::any& first, const std::any& second) const = 0;
 
     [[nodiscard]] virtual bool is_assignable(const std::any& e) const = 0;
+
+    virtual std::ostream& format(std::ostream& stream, const std::any& e) const = 0;
 };
 
 template<typename T>
@@ -40,6 +42,11 @@ struct BuiltInDataType : DataType
     [[nodiscard]] bool is_assignable(const std::any& e) const override
     {
         return typeid(T) == e.type();
+    }
+
+    std::ostream& format(std::ostream& stream, const std::any& e) const override
+    {
+        return stream << std::any_cast<T>(e);
     }
 };
 
