@@ -1,0 +1,111 @@
+{
+  "bibliotheques": [
+    {
+      "code": 0,
+      "nom": "Marguerite Yourcenar",
+      "adresse": "41 rue d'Alleray, 75015 Paris"
+    },
+    {
+      "code": 1,
+      "nom": "Bibliothèque l'Alcazar",
+      "adresse": "58 cours Belsunce, 13001 Marseille"
+    },
+    {
+      "code": 2,
+      "nom": "Bibliothèque du Panier",
+      "adresse": "3 rue de la Prison, 13002 Marseille"
+    }
+  ],
+  "livres": [
+    {
+      "code": 0,
+      "auteur": "Pierre Palmade",
+      "titre": "Ils se sont aimés",
+      "editeur": "Sony",
+      "isbn": "509-97-20173-79-3",
+      "public": "ADULTES",
+      "bibliotheque": 0,
+      "siecle": 21
+    },
+    {
+      "code": 1,
+      "auteur": "Abbé Prévost",
+      "titre": "Manon Lescaut",
+      "editeur": "Gallimard",
+      "isbn": "979-10-35822-52-1",
+      "public": "TOUT_PUBLIC",
+      "bibliotheque": 0,
+      "genre": "ROMAN_MEMOIRES"
+    },
+    {
+      "code": 2,
+      "auteur": "Laurent Mauvignier",
+      "titre": "La Maison vide",
+      "editeur": "Minuit",
+      "isbn": "978-27-07356-74-1",
+      "public": "TOUT_PUBLIC",
+      "bibliotheque": 1,
+      "genre": "ROMAN_HISTORIQUE"
+    },
+    {
+      "code": 3,
+      "auteur": "Karl Marx",
+      "titre": "Le Capital",
+      "editeur": "Flammarion",
+      "isbn": "978-20-80451-91-0",
+      "bibliotheque": 1,
+      "public": "ADULTES"
+    },
+    {
+      "code": 4,
+      "auteur": "Roger Hargreaves",
+      "titre": "Le grand livre des monsieur madame",
+      "editeur": "Hachette",
+      "isbn": "978-20-12252-09-7",
+      "public": "JEUNESSES",
+      "dessinateur": "Roger Hargreaves",
+      "bibliotheque": 2,
+      "type": "DESSINS"
+    },
+    {
+      "code": 5,
+      "auteur": "Marcel Dalton",
+      "titre": "Lucky Luke - Tome 38",
+      "editeur": "Hors Collection Lucky",
+      "isbn": "978-28-84710-43-5",
+      "public": "JEUNESSES",
+      "bibliotheque": 2,
+      "dessinateur": "Morris"
+    }
+  ],
+  "prete": [
+    {
+      "livre": 0,
+      "bibliotheque": 1
+    },
+    {
+      "livre": 5,
+      "bibliotheque": 0
+    }
+  ],
+  "adherents": [
+    {
+      "numero": 0,
+      "nom": "Sallé",
+      "prenom": "Noé",
+      "adresse": "1 rue Font-Vert, 13014 Marseille",
+      "bibliotheque": 1,
+      "maxEmprunt": 3,
+      "emprunts": [2, 3]
+    },
+    {
+      "numero": 1,
+      "nom": "Mammar",
+      "prenom": "Aksil",
+      "adresse": "12 rue Saint-Pons, 13002 Marseille",
+      "bibliotheque": 0,
+      "maxEmprunt": 2,
+      "emprunts": [1]
+    }
+  ]
+}

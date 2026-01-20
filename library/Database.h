@@ -1,6 +1,8 @@
 #ifndef PROJET_POO_DATABASE_H
 #define PROJET_POO_DATABASE_H
 
+#include <nlohmann/json.hpp>
+
 #include "Adherent.h"
 #include "Bibliotheque.h"
 #include "Livre.h"
@@ -8,7 +10,6 @@
 
 struct Database
 {
-private:
     Table bibliotheque {
         { "code", false, true, DT_UINT64 },
         { "nom", DT_STRING },
@@ -60,8 +61,7 @@ private:
     };
     Table prete {
         { "livre", true, true, DT_UINT64 },
-        { "source", true, false, DT_UINT64 },
-        { "destination", true, false, DT_UINT64 }
+        { "bibliotheque", true, false, DT_UINT64 }
     };
 
     Livre trouverLivre(std::uint64_t code) const;
@@ -76,7 +76,8 @@ private:
 
     std::optional<Prete> trouverPret(std::uint64_t codeLivre) const;
 
-public:
+    static std::unique_ptr<Database> read(const nlohmann::json& json);
+
     void ajouterBibliotheque(const Bibliotheque& data);
 
     void ajouterLivre(const Livre& data);

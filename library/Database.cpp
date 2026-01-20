@@ -1,5 +1,103 @@
 #include "Database.h"
 
+std::unique_ptr<Database> Database::read(const nlohmann::json& json)
+{
+    auto database = std::make_unique<Database>();
+
+    for (const auto& element : json.at("bibliotheques").items())
+    {
+        const nlohmann::json& desc = element.value();
+        database->bibliotheque.append(
+            desc.at("code").get<std::uint64_t>(),
+            desc.at("nom").get<std::string>(),
+            desc.at("adresse").get<std::string>()
+        );
+    }
+
+    for (const auto& element : json.at("livres").items())
+    {
+        const nlohmann::json& desc = element.value();
+        std::uint64_t code = desc.at("code").get<std::uint64_t>();
+
+        database->livre.append(
+            code,
+            desc.at("auteur").get<std::string>(),
+            desc.at("titre").get<std::string>(),
+            desc.at("editeur").get<std::string>(),
+            desc.at("isbn").get<std::string>(),
+            desc.at("public").get<Livre::Public>()
+        );
+
+        const auto& dessinateur = desc.find("dessinateur");
+        if (dessinateur != desc.end())
+        {
+            database->bd.append(code, dessinateur->get<std::string>());
+        }
+
+        const auto& style = desc.find("style");
+        if (style != desc.end())
+        {
+            database->recueilDePoesie.append(code, style->get<RecueilDePoesie::Style>());
+        }
+
+        const auto& genre = desc.find("genre");
+        if (genre != desc.end())
+        {
+            database->roman.append(code, genre->get<Roman::Genre>());
+        }
+
+        const auto& siecle = desc.find("siecle");
+        if (siecle != desc.end())
+        {
+            database->pieceDeTheatre.append(code, siecle->get<std::uint8_t>());
+        }
+
+        const auto& type = desc.find("type");
+        if (type != desc.end())
+        {
+            database->album.append(code, type->get<Album::Type>());
+        }
+
+        const auto& bibliotheque = desc.find("bibliotheque");
+        if (bibliotheque != desc.end())
+        {
+            database->detient.append(code, bibliotheque->get<std::uint64_t>());
+        }
+    }
+
+    for (const auto& element : json.at("prete").items())
+    {
+        const nlohmann::json& desc = element.value();
+        database->preterLivre(
+            desc.at("livre").get<std::uint64_t>(),
+            desc.at("bibliotheque").get<std::uint64_t>()
+        );
+    }
+
+    for (const auto& element : json.at("adherents").items())
+    {
+        const nlohmann::json& desc = element.value();
+        std::uint64_t numero = desc.at("numero").get<std::uint64_t>();
+
+        database->adherent.append(
+            numero,
+            desc.at("nom").get<std::string>(),
+            desc.at("prenom").get<std::string>(),
+            desc.at("adresse").get<std::string>(),
+            desc.at("bibliotheque").get<std::uint64_t>(),
+            desc.at("maxEmprunt").get<std::uint8_t>()
+        );
+
+        for (const auto& empruntElement : desc.at("emprunts").items())
+        {
+            const nlohmann::json& empruntDesc = empruntElement.value();
+            database->emprunter(numero, empruntDesc.get<std::uint64_t>());
+        }
+    }
+
+    return database;
+}
+
 void Database::ajouterBibliotheque(const Bibliotheque& data)
 {
     bibliotheque.append(data.code, data.nom, data.adresse);
@@ -130,10 +228,10 @@ std::optional<Detient> Database::trouverDetient(std::uint64_t codeLivre) const
 
 std::optional<Prete> Database::trouverPret(std::uint64_t codeLivre) const
 {
-    auto data_opt = prete.find<std::uint64_t, std::uint64_t, std::uint64_t>(codeLivre);
+    auto data_opt = prete.find<std::uint64_t, std::uint64_t>(codeLivre);
     if (data_opt.has_value())
     {
-        return Prete(std::get<0>(*data_opt), std::get<1>(*data_opt), std::get<2>(*data_opt));
+        return Prete(std::get<0>(*data_opt), std::get<1>(*data_opt));
     }
 
     return std::nullopt;
@@ -286,7 +384,7 @@ void Database::emprunter(std::uint64_t numeroAdherent, std::uint64_t codeLivre)
             throw std::runtime_error("Ce livre est prêté à une autre bibliothèque.");
         }
     }
-    else if (!pret.has_value() || pret->destination != a.bibliotheque)
+    else if (!pret.has_value() || pret->bibliotheque != a.bibliotheque)
     {
         throw std::runtime_error("Ce livre n'est pas disponible dans la bibliothèque de l'adhérent.");
     }
@@ -315,7 +413,7 @@ void Database::preterLivre(std::uint64_t codeLivre, std::uint64_t codeBiblio)
     auto pret = trouverPret(codeLivre);
     if (pret.has_value())
     {
-        if (pret->destination == codeBiblio)
+        if (pret->bibliotheque == codeBiblio)
         {
             return;
         }
@@ -328,12 +426,12 @@ void Database::preterLivre(std::uint64_t codeLivre, std::uint64_t codeBiblio)
         return;
     }
 
-    prete.append(codeLivre, d->bibliotheque, codeBiblio);
+    prete.append(codeLivre, codeBiblio);
 }
 
 void Database::retournerBiblio(std::uint64_t codeBiblio)
 {
-    std::function getPretsFunc = [this,codeBiblio](std::uint64_t codeLivre, std::uint64_t _, std::uint64_t destination)
+    std::function getPretsFunc = [this,codeBiblio](std::uint64_t codeLivre, std::uint64_t destination)
     {
         return destination == codeBiblio && !trouverEmprunt(codeLivre).has_value();
     };

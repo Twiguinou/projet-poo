@@ -29,8 +29,7 @@ struct Detient
 struct Prete
 {
     const std::uint64_t livre;
-    const std::uint64_t source;
-    const std::uint64_t destination;
+    const std::uint64_t bibliotheque;
 };
 
 #endif
