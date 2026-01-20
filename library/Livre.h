@@ -1,8 +1,8 @@
-#ifndef PROJET_POO_LIVRE_H
-#define PROJET_POO_LIVRE_H
+#ifndef PROJET_POO_LIBS_LIVRE_H
+#define PROJET_POO_LIBS_LIVRE_H
 
 #include <string>
-#include <nlohmann/json.hpp>
+#include <nlohmann/detail/macro_scope.hpp>
 
 #include "Table.h"
 

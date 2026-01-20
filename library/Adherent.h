@@ -1,5 +1,5 @@
-#ifndef PROJET_POO_ADHERENT_H
-#define PROJET_POO_ADHERENT_H
+#ifndef PROJET_POO_LIBS_ADHERENT_H
+#define PROJET_POO_LIBS_ADHERENT_H
 
 #include <cstdint>
 #include <string>

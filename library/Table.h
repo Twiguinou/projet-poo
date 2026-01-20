@@ -1,7 +1,6 @@
-#ifndef PROJET_POO_TABLE_H
-#define PROJET_POO_TABLE_H
+#ifndef PROJET_POO_LIBS_TABLE_H
+#define PROJET_POO_LIBS_TABLE_H
 
-#include <algorithm>
 #include <any>
 #include <array>
 #include <cstdint>

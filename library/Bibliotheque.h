@@ -1,5 +1,5 @@
-#ifndef PROJET_POO_BIBLIOTHEQUE_H
-#define PROJET_POO_BIBLIOTHEQUE_H
+#ifndef PROJET_POO_LIBS_BIBLIOTHEQUE_H
+#define PROJET_POO_LIBS_BIBLIOTHEQUE_H
 
 #include <cstdint>
 #include <string>

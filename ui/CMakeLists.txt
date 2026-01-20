@@ -1,7 +1,9 @@
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
 
-add_executable(projet-poo-ui main.cpp)
-target_link_libraries(projet-poo-ui PRIVATE projet-poo-libs Qt6::Core Qt6::Widgets)
+qt_add_executable(projet-poo-ui
+    main.cpp
+    MainWindow.h
+    MainWindow.cpp
+)
+target_link_libraries(projet-poo-ui PRIVATE projet-poo-libs Qt6::Widgets)

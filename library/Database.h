@@ -1,5 +1,5 @@
-#ifndef PROJET_POO_DATABASE_H
-#define PROJET_POO_DATABASE_H
+#ifndef PROJET_POO_LIBS_DATABASE_H
+#define PROJET_POO_LIBS_DATABASE_H
 
 #include <nlohmann/json.hpp>
 
