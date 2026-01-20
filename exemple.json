@@ -76,15 +76,131 @@
       "public": "JEUNESSES",
       "bibliotheque": 2,
       "dessinateur": "Morris"
+    },
+    {
+      "code": 6,
+      "auteur": "Laurent Mauvignier",
+      "titre": "La Maison vide",
+      "editeur": "Minuit",
+      "isbn": "978-27-07356-74-1",
+      "public": "TOUT_PUBLIC",
+      "bibliotheque": 1,
+      "genre": "ROMAN_HISTORIQUE"
+    },
+    {
+      "code": 7,
+      "auteur": "René Goscinny",
+      "dessinateur": "Albert Uderzo",
+      "titre": "Astérix le Gaulois",
+      "editeur": "Dargaud",
+      "isbn": "978-20-12101-33-3",
+      "public": "TOUT_PUBLIC",
+      "bibliotheque": 0
+    },
+    {
+      "code": 8,
+      "auteur": "Charles Baudelaire",
+      "titre": "Les Fleurs du mal",
+      "editeur": "Le Livre de Poche",
+      "isbn": "978-22-53007-10-7",
+      "public": "ADOS",
+      "bibliotheque": 1,
+      "style": "VERS"
+    },
+    {
+      "code": 9,
+      "auteur": "Agatha Christie",
+      "titre": "Le Meurtre de Roger Ackroyd",
+      "editeur": "Le Masque",
+      "isbn": "978-27-02436-09-7",
+      "public": "TOUT_PUBLIC",
+      "bibliotheque": 0,
+      "genre": "ROMAN_POLICIER"
+    },
+    {
+      "code": 10,
+      "auteur": "Molière",
+      "titre": "L'Avare",
+      "editeur": "Larousse",
+      "isbn": "978-20-35866-10-3",
+      "public": "TOUT_PUBLIC",
+      "bibliotheque": 0,
+      "siecle": 17
+    },
+    {
+      "code": 11,
+      "auteur": "George Orwell",
+      "titre": "1984",
+      "editeur": "Gallimard",
+      "isbn": "978-20-70368-22-8",
+      "public": "ADULTES",
+      "bibliotheque": 1,
+      "genre": "ROMAN_DANTICIPATION"
+    },
+    {
+      "code": 12,
+      "auteur": "Yann Arthus-Bertrand",
+      "titre": "La Terre vue du ciel",
+      "editeur": "La Martinière",
+      "isbn": "978-27-32424-42-2",
+      "public": "TOUT_PUBLIC",
+      "bibliotheque": 0,
+      "type": "PHOTOS"
+    },
+    {
+      "code": 13,
+      "auteur": "Arthur Rimbaud",
+      "titre": "Illuminations",
+      "editeur": "Flammarion",
+      "isbn": "978-20-80706-96-6",
+      "public": "ADOS",
+      "bibliotheque": 1,
+      "style": "PROSE"
+    },
+    {
+      "code": 14,
+      "auteur": "J.K. Rowling",
+      "titre": "Harry Potter à l'école des sorciers",
+      "editeur": "Gallimard Jeunesse",
+      "isbn": "978-20-70541-27-0",
+      "public": "JEUNESSES",
+      "bibliotheque": 0,
+      "genre": "ROMAN_DAPPRENTISSAGE"
+    },
+    {
+      "code": 15,
+      "auteur": "Juan Díaz Canales",
+      "dessinateur": "Juanjo Guarnido",
+      "titre": "Blacksad : Quelque part entre les ombres",
+      "editeur": "Dargaud",
+      "isbn": "978-22-05049-65-7",
+      "public": "ADULTES",
+      "bibliotheque": 1
     }
   ],
   "prete": [
+{
+      "livre": 1,
+      "bibliotheque": 0
+    },
     {
-      "livre": 0,
+      "livre": 2,
+      "bibliotheque": 1
+    },
+    {
+      "livre": 3,
       "bibliotheque": 1
     },
     {
       "livre": 5,
+      "bibliotheque": 0
+    },
+    {
+      "livre": 6,
+      "bibliotheque": 2
+    },
+    {
+      "livre": 10,
       "bibliotheque": 0
     }
   ],
@@ -106,6 +222,24 @@
       "bibliotheque": 0,
       "maxEmprunt": 2,
       "emprunts": [1]
+    },
+    {
+      "numero": 2,
+      "nom": "Dubois",
+      "prenom": "Sophie",
+      "adresse": "8 Place de Lenche, 13002 Marseille",
+      "bibliotheque": 2,
+      "maxEmprunt": 5,
+      "emprunts": [6]
+    },
+    {
+      "numero": 3,
+      "nom": "Moreau",
+      "prenom": "Lucas",
+      "adresse": "15 Avenue du Maine, 75015 Paris",
+      "bibliotheque": 0,
+      "maxEmprunt": 2,
+      "emprunts": [5, 10]
     }
   ]
 }

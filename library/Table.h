@@ -239,6 +239,20 @@ public:
 
         return std::nullopt;
     }
+    // Nécessaire pour que l'UI puisse créer les headers du QTableWidget
+    std::vector<std::string> getColumnNames() const {
+        std::vector<std::string> names;
+        for (const auto& col : columns) {
+            names.push_back(col.spec.name);
+        }
+        return names;
+    }
+
+    // Optionnel : Accesseur direct aux colonnes par index pour simplifier l'itération UI
+    const std::vector<std::any>& getColumnData(size_t index) const {
+        if (index >= columns.size()) throw std::out_of_range("Invalid column index");
+        return columns[index].data;
+    }
 };
 
 #endif
