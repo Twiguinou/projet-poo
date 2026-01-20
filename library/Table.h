@@ -13,45 +13,6 @@
 #include <unordered_map>
 #include <vector>
 
-class Table;
-
-class RowIterator
-{
-protected:
-    const Table& constTable;
-    std::size_t index = 0;
-
-    void checkIndex() const;
-
-public:
-    explicit RowIterator(const Table& table);
-
-    virtual ~RowIterator() = default;
-
-    [[nodiscard]] std::any get(const std::string& name) const;
-
-    template<typename T>
-    T get(const std::string& name) const
-    {
-        return std::any_cast<T>(get(name));
-    }
-
-    [[nodiscard]] bool hasNext() const;
-
-    void push();
-};
-
-class RowWriteIterator : RowIterator
-{
-private:
-    Table& table;
-
-public:
-    explicit RowWriteIterator(Table& table);
-
-    void set(const std::string& name, const std::any& value) const;
-};
-
 struct DataType
 {
     virtual ~DataType() = default;
@@ -164,10 +125,6 @@ public:
     }
 
     const std::vector<std::any>& column(const std::string& name) const;
-
-    std::unique_ptr<RowIterator> rows() const;
-
-    std::unique_ptr<RowWriteIterator> rows();
 
     bool contains(const std::string& name, const std::any& key) const;
 

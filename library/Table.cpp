@@ -58,53 +58,6 @@ const std::vector<std::any>& Table::column(const std::string& name) const
     return columns[indices.at(name)].data;
 }
 
-RowIterator::RowIterator(const Table& table) : constTable(table) {}
-
-void RowIterator::checkIndex() const
-{
-    if (!hasNext())
-    {
-        throw std::runtime_error("This iterator has reached the end of the table.");
-    }
-}
-
-std::any RowIterator::get(const std::string& name) const
-{
-    checkIndex();
-    return constTable.column(name)[index];
-}
-
-bool RowIterator::hasNext() const
-{
-    return index < constTable.size();
-}
-
-void RowIterator::push()
-{
-    checkIndex();
-    ++index;
-}
-
-RowWriteIterator::RowWriteIterator(Table& table) : RowIterator(table), table(table) {}
-
-void RowWriteIterator::set(const std::string& name, const std::any& value) const
-{
-    checkIndex();
-    Table::Column& column = table.columns[table.indices.at(name)];
-    column.ensureValid(value);
-    column.data[index] = value;
-}
-
-std::unique_ptr<RowIterator> Table::rows() const
-{
-    return std::make_unique<RowIterator>(*this);
-}
-
-std::unique_ptr<RowWriteIterator> Table::rows()
-{
-    return std::make_unique<RowWriteIterator>(*this);
-}
-
 std::optional<std::size_t> Table::find_index(const Column& column, const std::any& key)
 {
     auto it = std::ranges::find_if(column.data, [&](const std::any& value)
