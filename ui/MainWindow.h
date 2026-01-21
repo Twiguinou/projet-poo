@@ -30,9 +30,13 @@ private slots:
     void onBtnAcheterLivre();
     void onBtnSupprimerLivre();
     
-    // Filtres / Affichage
+    // FIltres
     void onBtnVoirRomans();
     void onBtnVoirBD();
+    // AJOUTS :
+    void onBtnVoirPoesie();
+    void onBtnVoirTheatre();
+    void onBtnVoirAlbums();
 
 private:
     // UI Elements
